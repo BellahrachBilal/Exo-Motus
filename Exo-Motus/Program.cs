@@ -4,7 +4,7 @@
     {
         static void Main(string[] args)
         {
-            
+
         }
         
         public static string[] Show(string[] tabMot, int[] tabValeur) // Verification + attribution de couleur en fonction des valeurs reprisent du tableau de int
@@ -55,6 +55,14 @@
             Console.WriteLine($"|  {tenta[0]}  |  {tenta[1]}  |  {tenta[2]}  |  {tenta[3]}  |  {tenta[4]}  |");
             Console.WriteLine("|     |     |     |     |     |");
             Console.WriteLine(" ----------------------------- ");
+
+            // Liste des mots pour le jeu
+            string[] mots = { "Blanc", "Pluie", "Ecran", "pomme", "Force", "Fleur", "Livre", "Monde", "prune", "poire" };
+
+            // Choix d'un mot aléatoire
+            Random rand = new Random();
+            string motADeviner = mots[rand.Next(mots.Length)].ToLower();
+
         }
     }
 }
