@@ -39,7 +39,6 @@ namespace Exo_Motus
                     {
                         if (lettersCounts[RightWord[y]] > 0)
                         {
-                            RightPlace[i] = 1;
                             lettersCounts[RightWord[y]]--;
                         }
                     }
