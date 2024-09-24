@@ -6,7 +6,48 @@ namespace Exo_Motus
     {
         static void Main(string[] args)
         {
+            string[] mots = { "Blanc", "Pluie", "Ecran", "pomme", "Force", "Fleur", "Livre", "Monde", "prune", "poire" };
+            Random rand = new Random();
+            string motADeviner = mots[rand.Next(mots.Length)].ToLower();
+            int[] status = new int[motADeviner.Length];
 
+            int maxAttempts = 6;
+            int attempt = 0;
+
+            // Game Loop
+            while (attempt < maxAttempts)
+            {
+                Console.WriteLine("Entrez votre tentative : ");
+                string tentative = Console.ReadLine()?.ToLower();
+
+                if (tentative.Length != motADeviner.Length)
+                {
+                    Console.WriteLine($"Votre tentative doit être de {motADeviner.Length} lettres.");
+                    continue;
+                }
+
+                // Check correct positions and wrong positions
+                status = RightCaracInWordRightPlace(tentative, new int[tentative.Length], motADeviner);
+                status = RightCaractInWordWrongPlace(tentative, status, motADeviner);
+
+                // Show results
+                string[] formatted = Show(tentative.ToCharArray().Select(c => c.ToString()).ToArray(), status);
+                ShowResult(formatted);
+
+                // Check if the player won
+                if (tentative == motADeviner)
+                {
+                    Console.WriteLine("Félicitations, vous avez trouvé le mot !");
+                    break;
+                }
+
+                attempt++;
+            }
+
+            if (attempt == maxAttempts)
+            {
+                Console.WriteLine($"Dommage, le mot était : {motADeviner}");
+            }
         }
         
         public static string[] Show(string[] tabMot, int[] tabValeur) // Verification + attribution de couleur en fonction des valeurs reprisent du tableau de int
@@ -68,7 +109,7 @@ namespace Exo_Motus
            
         }
 
-        public Dictionary<char, int> NumberLetterOccurence(string Word, int[] RightPlace)
+        public static Dictionary<char, int> NumberLetterOccurence(string Word, int[] RightPlace)
         {
             Dictionary<char, int> letterCounts = new Dictionary<char, int>();
             for(int i=0;i<Word.Length;i++){
@@ -87,7 +128,7 @@ namespace Exo_Motus
             return letterCounts;
         }
 
-        public int[] RightCaractInWordWrongPlace(string Word, int[] RightPlace, string RightWord)
+        public static int[] RightCaractInWordWrongPlace(string Word, int[] RightPlace, string RightWord)
         {
             Dictionary<char, int> letterCounts = NumberLetterOccurence(RightWord, RightPlace);
 
@@ -106,7 +147,7 @@ namespace Exo_Motus
             return RightPlace;
         }
 
-        public int[] RightCaracInWordRightPlace(string Word, int[] RightPlace, string RightWord)
+        public static int[] RightCaracInWordRightPlace(string Word, int[] RightPlace, string RightWord)
         {
             for (int i = 0; i < Word.Length; i++)
             {
