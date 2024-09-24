@@ -1,4 +1,6 @@
-﻿namespace Exo_Motus
+﻿using System.Reflection.Metadata.Ecma335;
+
+namespace Exo_Motus
 {
     internal class Program
     {
@@ -29,6 +31,7 @@
 
                 return result;
         }
+
         public static void ShowResult(string[] tabMot) // Méthode d'affichage reprennant le tableau résult de la méthode Show.
         {
 
@@ -99,6 +102,18 @@
                         }                            
                     }
                 }
+            }
+            return RightPlace;
+        }
+
+        public int[] RightCaracInWordRightPlace(string Word, int[] RightPlace, string RightWord)
+        {
+            for (int i = 0; i < Word.Length; i++)
+            {
+                if (Word[i] == RightWord[i])
+                {                   
+                    RightPlace[i] = 1;                       
+                } 
             }
             return RightPlace;
         }
