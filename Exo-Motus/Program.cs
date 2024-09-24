@@ -13,11 +13,11 @@
 
             for (int i = 0; i < tabMot.Length; i++)
             {
-                if (tabValeur[i] == 2)
+                if (tabValeur[i] == 1)
                 {
                     result[i] = $"\u001b[31m{tabMot[i]}\u001b[0m"; // Attribution de la couleur rouge car bonne réponse
                 }
-                else if (tabValeur[i] == 1)
+                else if (tabValeur[i] == 2)
                 {
                     result[i] = $"\u001b[33m{tabMot[i]}\u001b[0m"; // Attribution de la couleur jaune car bonne lettre mais mal placée
                 }
