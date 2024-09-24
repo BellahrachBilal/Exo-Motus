@@ -4,7 +4,13 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            // Liste des mots pour le jeu
+            string[] mots = { "Blanc", "Pluie", "Ecran", "pomme", "Force", "Fleur", "Livre", "Monde", "prune", "poire" };
+
+            // Choix d'un mot aléatoire
+            Random rand = new Random();
+            string motADeviner = mots[rand.Next(mots.Length)].ToLower();
+
         }
     }
 }
