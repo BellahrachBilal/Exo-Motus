@@ -19,10 +19,6 @@ namespace Exo_Motus
                     {
                         letterCounts[Word[i]]++;
                     }
-                    else
-                    {
-                        letterCounts[Word[i]] = 1;
-                    }
                 }
             }
             return letterCounts;
