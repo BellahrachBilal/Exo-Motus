@@ -38,5 +38,23 @@
             Console.WriteLine("|     |     |     |     |     |");
             Console.WriteLine(" ----------------------------- ");
         }
+
+        public static void ShowTenta(string mot) // Méthode d'affichage reprennant le tableau de tentative de l'utilisateur.
+        {
+            string[] tenta = new string[mot.Length];
+            int i = 0;
+
+            foreach(char c in mot)
+            {
+                tenta[i] = c.ToString();
+                i++;
+            }
+
+            Console.WriteLine(" _____________________________ ");
+            Console.WriteLine("|     |     |     |     |     |");
+            Console.WriteLine($"|  {tenta[0]}  |  {tenta[1]}  |  {tenta[2]}  |  {tenta[3]}  |  {tenta[4]}  |");
+            Console.WriteLine("|     |     |     |     |     |");
+            Console.WriteLine(" ----------------------------- ");
+        }
     }
 }
